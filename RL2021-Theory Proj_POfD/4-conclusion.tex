@@ -1,0 +1,18 @@
+
+\section{Conclusion}
+\label{section:conclusion}
+Please provide succinct concluding remarks for your report. You may discuss the following aspects:
+\begin{itemize}
+    \item The potential future research directions 
+    \item Any technical limitations 
+    \item Any latest results on the problem of interest 
+
+Observing the new reward function $r^{\prime}(s,a)$  in Eq. (7), we can find that if the environment feedback rewards are very sparse, then the agent behaves like an expert, which can guide the agent to learn from the expert; but when the environment itself has rewards, it is directly Relying on these environment rewards itself for learning, not relying on expert demonstrations. Therefore, it realizes learning experts first and then self-learning. \\
+However, the optimization problem of POfD begins with the demonstration guided regularization term which is a typical JS-divergence, and then is deduced into the form similar to GANs. As I know, the GAN method with the original JS-divergence-based objective is usually hard to be optimized and converge. So this POfD may have similar technical limitations like the early type of GAN, maybe it can refer to the subsequent developments of GAN to find a more useful technique to further finetune its current optimization method and get even better performance.
+
+    
+    
+\end{itemize}
+
+
+

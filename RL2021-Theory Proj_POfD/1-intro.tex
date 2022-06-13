@@ -1,0 +1,16 @@
+\section{Introduction}
+\label{section:intro}
+
+\begin{itemize}
+    \item The main research challenges tackled by the paper: \\
+    Exploration still remains a significant challenge to reinforcement learning algorithms, especially the reward signals from the environment are sparse. Learning from demonstrations (LfD) (\cite{hester2018deep,vecerik2017leveraging}) is a common approach for addressing exploration difficulties in sparse reward tasks. However, existing LfD methods is limited by only treating the demonstrations in the same way as self-generated data. Besides, the traditional LfD usually require a large number of high-quality demonstrations which are difficult to collect at scale.
+    \item The high-level technical insights into the problem of interest \\
+    The intuition of LfD is that the agent could imitate the expert demonstrations when the reward signal sparse in early learning stages instead of random exploration. After acquiring enough assistances, the agent can explore for even better policy on its own. In other words, LfD can be viewed as a dynamic intrinsic reward mechanism. That is, one can introduce demonstrations for reshaping native rewards in RL. Therefore, this research proposes a novel Policy Optimization from Demonstration (POfD) method (\cite{kang2018policy}), which can acquire knowledge from demonstration data to boost exploration, even though the data are scarce and imperfect. 
+    \item The main contributions of the paper (compared to the prior works) \\
+    1.	The research successfully proves that POfD induces implicit dynamic reward shaping and brings significant benefits for policy improvement.\\
+    2.	POfD is generally compatible with most policy gradient algorithms. \\
+    3.	It also shows that existing LfD methods \cite{vecerik2017leveraging} can be interpreted as degenerated cases of POfD in terms of how to leverage the demonstration data. 
+
+    \item Your personal perspective on the proposed method \\
+    In my opinion, this POfD method looks similar to the inverse reinforcement learning method (IRL) (\cite{fu2017learning}). But the POfD will be better than the typical generative IRL in some sense due to its mechanism. When the environment feedback reward is sparse, we usually let the agent learn from the expert’s demonstration. In addition, we don’t know the reward function for the expert policy. Instead, IRL can adopt generative methods such as generative adversarial networks (GANs) (\cite{goodfellow2014generative}) to learn the reward function for expert policy by using the expert trajectories even though the expert demonstration is few. However, the typical IRL regards expert demonstration as the best policy. When it comes to POfD, it reshapes the reward function during the policy optimization process. Furthermore, POfD does not regard expert demonstration as the best policy. Instead, this new reshaped reward function can guide the agent to imitate expert behavior when the environment reward is sparse, and explore independently when it can get the environment reward value. In this way, the expert demonstration can be more fully utilized, and there is no need to ensure that the expert policy is the optimal one, which is a great improvement compared to the previous methods.
+\end{itemize}
